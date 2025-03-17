@@ -6,235 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="fav/favicon.ico">
     <title>Callbox | Candidate Assessment</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            padding: 20px;
-            background-color: #f8f9fa;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .form-container {
-            max-width: 1000px;
-            width: 100%;
-        }
-
-        .card {
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background-color: white;
-        }
-
-        .card-header {
-            background-color: white;
-            border-bottom: none;
-            padding-top: 20px;
-            padding-bottom: 0;
-        }
-
-        .subtitle {
-            color: #6c757d;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .nav-tabs {
-            border-bottom: none;
-            background-color: #f8f9fa;
-            border-radius: 6px;
-            padding: 5px;
-        }
-
-        .nav-tabs .nav-link {
-            border: none;
-            color: #6c757d;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .nav-tabs .nav-link.active {
-            background-color: white;
-            color: #000;
-            font-weight: 500;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-tabs .nav-link.disabled {
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
-
-        .form-label {
-            font-weight: 500;
-        }
-
-        .required:after {
-            content: " *";
-            color: #dc3545;
-        }
-
-        .form-control {
-            padding: 10px 12px;
-        }
-
-        .form-control::placeholder {
-            color: #adb5bd;
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .section-subtitle {
-            color: #6c757d;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .skill-card {
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .skill-name {
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .proficiency-options {
-            display: flex;
-            gap: 20px;
-        }
-
-        .proficiency-option {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .proficiency-Beginner {
-            color: #495057;
-        }
-
-        .proficiency-Intermediate {
-            color: #0d6efd;
-        }
-
-        .proficiency-Advanced {
-            color: #198754;
-        }
-
-        .proficiency-Expert {
-            color: #6f42c1;
-        }
-
-        .form-check-input {
-            width: 1.2em;
-            height: 1.2em;
-            margin-top: 0;
-        }
-
-        .btn-dark {
-            background-color: #212529;
-            border-color: #212529;
-            color: white;
-        }
-
-        .btn-dark:hover {
-            background-color: #1a1e21;
-            border-color: #1a1e21;
-        }
-
-        /* Added styles for validation */
-        .is-invalid {
-            border-color: #dc3545 !important;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right calc(0.375em + 0.1875rem) center;
-            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-        }
-
-        .invalid-feedback {
-            display: none;
-            width: 100%;
-            margin-top: 0.25rem;
-            font-size: 0.875em;
-            color: #dc3545;
-        }
-
-        .was-validated .form-control:invalid~.invalid-feedback,
-        .form-control.is-invalid~.invalid-feedback {
-            display: block;
-        }
-
-        .skill-card.is-invalid {
-            border-color: #dc3545 !important;
-            background-image: none;
-        }
-
-        .skill-card.is-invalid .skill-name {
-            color: #dc3545;
-        }
-
-        /* Thank you message styles */
-        #thankYouMessage {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        #thankYouMessage h2 {
-            color: #198754;
-            margin-bottom: 20px;
-        }
-
-        #thankYouMessage p {
-            font-size: 18px;
-            color: #495057;
-            max-width: 600px;
-            margin: 0 auto 20px;
-        }
-
-        .check-icon {
-            width: 80px;
-            height: 80px;
-            background-color: #198754;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-        }
-
-        .check-icon svg {
-            width: 40px;
-            height: 40px;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -255,16 +28,24 @@
                                         onclick="attemptShowSection(1)">Applicant</button>
                                 </li>
                                 <li class="nav-item">
+                                    <button type="button" class="nav-link disabled" id="education-tab"
+                                        onclick="attemptShowSection(2)">Education</button>
+                                </li>
+                                <li class="nav-item">
                                     <button type="button" class="nav-link disabled" id="skills-tab"
-                                        onclick="attemptShowSection(2)">Skills</button>
+                                        onclick="attemptShowSection(3)">Skills</button>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" class="nav-link disabled" id="technical-tab"
-                                        onclick="attemptShowSection(3)">Technical</button>
+                                        onclick="attemptShowSection(4)">Technical</button>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" class="nav-link disabled" id="industry-tab"
-                                        onclick="attemptShowSection(4)">Industry</button>
+                                        onclick="attemptShowSection(5)">Industry</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" class="nav-link disabled" id="experience-tab"
+                                        onclick="attemptShowSection(6)">Experience</button>
                                 </li>
                             </ul>
                         </div>
@@ -313,8 +94,40 @@
                                     <button type="button" class="btn btn-primary" onclick="nextSection(1)">Next</button>
                                 </div>
                             </div>
-                            <!-- Section 2: Skills -->
+
+                            <!-- Section 2: Education Level -->
                             <div id="section2" class="section">
+                                <h3 class="section-title">Select Educational Background</h3>
+                                <p class="section-subtitle">Check the highest level of education you have completed</p>
+
+                                <div class="skill-card" id="educationCard">
+                                    <div class="skill-name">Educational Level</div>
+                                    <label class="education-option">
+                                        <input type="radio" id="entry.241915239" name="entry.241915239" value="Some College">
+                                        Some College
+                                    </label>
+                                    
+                                    <label class="education-option">
+                                        <input type="radio" id="entry.241915239" name="entry.241915239" value="Bachelor's Degree">
+                                        Bachelor's Degree
+                                    </label>
+                                    
+                                    <label class="education-option">
+                                        <input type="radio" id="entry.241915239" name="entry.241915239" value="Master's Degree">
+                                        Master's Degree
+                                    </label>
+                                    <div class="invalid-feedback">Please select an educational level</div>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-light"
+                                        onclick="previousSection(2)">Previous</button>
+                                    <button type="button" class="btn btn-primary" onclick="nextSection(2)">Next</button>
+                                </div>
+
+                            </div>
+                            <!-- Section 3: Skills -->
+                            <div id="section3" class="section">
                                 <h3 class="section-title">Select Required Skills and Proficiency Levels</h3>
                                 <p class="section-subtitle">Select one proficiency level for each skill</p>
 
@@ -660,7 +473,7 @@
                                     <div class="proficiency-options">
                                         <label class="proficiency-option">
                                             <input type="radio" id="entry.1365391400" name="entry.1365391400"
-                                                value="Beg  name="entry.1365391400" value="Beginner">
+                                                value="Beginner">
                                             <span class="proficiency-Beginner">Beginner</span>
                                         </label>
                                         <label class="proficiency-option">
@@ -796,12 +609,12 @@
 
                                 <div class="d-flex justify-content-between">
                                     <button type="button" class="btn btn-light"
-                                        onclick="previousSection(2)">Previous</button>
-                                    <button type="button" class="btn btn-primary" onclick="nextSection(2)">Next</button>
+                                        onclick="previousSection(3)">Previous</button>
+                                    <button type="button" class="btn btn-primary" onclick="nextSection(3)">Next</button>
                                 </div>
                             </div>
-                            <!-- Section 3: Technecal Skills -->
-                            <div id="section3" class="section">
+                            <!-- Section 4: Technical Skills -->
+                            <div id="section4" class="section">
                                 <h3 class="section-title">Select Technical Skills and Proficiency Levels</h3>
                                 <p class="section-subtitle">Select one proficiency level for each technical skill</p>
 
@@ -1087,17 +900,17 @@
 
                                 <div class="d-flex justify-content-between">
                                     <button type="button" class="btn btn-light"
-                                        onclick="previousSection(3)">Previous</button>
-                                    <button type="button" class="btn btn-primary" onclick="nextSection(3)">Next</button>
+                                        onclick="previousSection(4)">Previous</button>
+                                    <button type="button" class="btn btn-primary" onclick="nextSection(4)">Next</button>
                                 </div>
                             </div>
-                            <!-- Section 4: Industry & Experience -->
-                            <div id="section4" class="section">
+                            <!-- Section 5: Industry & Experience -->
+                            <div id="section5" class="section">
                                 <h3 class="section-title">Select Industry & Niche Experience</h3>
                                 <p class="section-subtitle">Check all industries and niches that the candidate has
                                     experience in</p>
 
-                                <div class="skill-card">
+                                <div class="skill-card" id="industryCard">
                                     <label class="d-flex align-items-center gap-2">
                                         <input type="checkbox" id="entry.1502982371" name="entry.1502982371" value="B2B Sales & Lead Generation"
                                             class="form-check-input">
@@ -1144,10 +957,45 @@
                                         <span class="skill-name mb-0">UI/UX & Product Design</span>
                                     </label>
                                 </div>
+                                <div class="invalid-feedback">Please select at least one industry</div>
 
                                 <div class="d-flex justify-content-between">
                                     <button type="button" class="btn btn-light"
-                                        onclick="previousSection(4)">Previous</button>
+                                        onclick="previousSection(5)">Previous</button>
+                                    <button type="button" class="btn btn-primary" onclick="nextSection(5)">Next</button>
+                                </div>
+                            </div>
+                            <!-- Section 6: Years of Experience -->
+                            <div id="section6" class="section">
+                                <h3 class="section-title">Years of Experience</h3>
+                                <p class="section-subtitle">Select your total years of relevant experience</p>
+
+                                <div class="skill-card" id="experienceCard">
+                                    <div class="skill-name">Years of Experience</div>
+                                    <label class="experience-option">
+                                        <input type="radio" id="entry.289093561" name="entry.289093561" value="Less than 1 year">
+                                        Less than 1 year
+                                    </label>
+                                    
+                                    <label class="experience-option">
+                                        <input type="radio" id="entry.289093561" name="entry.289093561" value="1-3 years">
+                                        1-3 years
+                                    </label>
+                                    
+                                    <label class="experience-option">
+                                        <input type="radio" id="entry.289093561" name="entry.289093561" value="3-5 years">
+                                        3-5 years
+                                    </label>
+                                    <label class="experience-option">
+                                        <input type="radio" id="entry.289093561" name="entry.289093561" value="5+ years">
+                                        5+ years
+                                    </label>
+                                    <div class="invalid-feedback">Please select your years of experience</div>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-light"
+                                        onclick="previousSection(6)">Previous</button>
                                     <button type="button" class="btn btn-dark" onclick="submitForm()">Submit</button>
                                 </div>
                             </div>
@@ -1165,9 +1013,11 @@
         // Store form data
         let formData = {
             applicant: {},
+            education: {},
             skills: {},
             technical: {},
-            industry: []
+            industry: [],
+            experience: {}
         };
 
         // Function to show a specific section
@@ -1185,7 +1035,7 @@
                 tab.classList.remove('active');
             });
 
-            const tabIds = ['applicant-tab', 'skills-tab', 'technical-tab', 'industry-tab'];
+            const tabIds = ['applicant-tab', 'education-tab', 'skills-tab', 'technical-tab', 'industry-tab', 'experience-tab'];
             document.getElementById(tabIds[sectionNumber - 1]).classList.add('active');
 
             // Update tab states
@@ -1261,6 +1111,26 @@
                 }
             }
             else if (sectionNumber === 2) {
+                // Validate education section
+                const educationToValidate = [
+                    {name: 'entry.241915239', cardId: 'educationCard'}
+                ];
+
+                educationToValidate.forEach(level => {
+                    const selected = document.querySelector(`input[name="${level.name}"]:checked`);
+                    if (!selected) {
+                        document.getElementById(level.cardId).classList.add('is-invalid');
+                        isValid = false;
+                    }
+                });
+
+                if (isValid) {
+                    formData.education = {
+                        level: document.querySelector('input[name="entry.241915239"]:checked')?.value
+                    };
+                }
+            }
+            else if (sectionNumber === 3) {
                 // Validate skills section
                 const skillsToValidate = [
                     { name: 'entry.1215407674', cardId: 'salesSkillCard' },
@@ -1275,7 +1145,6 @@
                     { name: 'entry.826659433', cardId: 'juniorBusinessDevelopmentRepresentativeSkillCard' },
                     { name: 'entry.1315177529', cardId: 'seniorSalesTechSkillCard' },
                     { name: 'entry.1201646898', cardId: 'callboxSocialMediaManagerSkillCard' },
-                    { name: 'entry.1201646898',  cardId: 'callboxSocialMediaManagerSkillCard' },
                     { name: 'entry.1365391400', cardId: 'uiUxDesignerCrmFocusSkillCard' },
                     { name: 'entry.48651508', cardId: 'seniorBusinessDevelopmentSkillCard' },
                     { name: 'entry.1981872330', cardId: 'seniorClientSuccessManagerSkillCard' },
@@ -1294,38 +1163,38 @@
                 if (isValid) {
                     formData.skills = {
                         sales: document.querySelector('input[name="entry.1215407674"]:checked')?.value,
-                        socialMedia: document.querySelector('input[name="entry.1027408767"]:checked')?.value,
+                        contentWriter: document.querySelector('input[name="entry.1027408767"]:checked')?.value,
                         clientManagement: document.querySelector('input[name="entry.88970708"]:checked')?.value,
-                        socialMediaMarketerSkill: document.querySelector('input[name="entry.1472269512"]:checked')?.value,
-                        emailMarketingSpecialistSkill: document.querySelector('input[name="entry.845440938"]:checked')?.value,
-                        dataResearcherSkill: document.querySelector('input[name="entry.733183005"]:checked')?.value,
-                        dataProfilerSkill: document.querySelector('input[name="entry.1996721800"]:checked')?.value,
-                        dataAnalystSkill: document.querySelector('input[name="entry.1129004359"]:checked')?.value,
-                        digitalMarketingStrategistSkill: document.querySelector('input[name="entry.480360500"]:checked')?.value,
-                        juniorBusinessDevelopmentRepresentativeSkill: document.querySelector('input[name="entry.826659433"]:checked')?.value,
-                        seniorSalesTechSkill: document.querySelector('input[name="entry.1315177529"]:checked')?.value,
-                        callboxSocialMediaManagerSkill: document.querySelector('input[name="entry.1201646898"]:checked')?.value,
-                        uiUxDesignerCrmFocusSkill: document.querySelector('input[name="entry.1365391400"]:checked')?.value,
-                        seniorBusinessDevelopmentSkill: document.querySelector('input[name="entry.48651508"]:checked')?.value,
-                        seniorClientSuccessManagerSkill: document.querySelector('input[name="entry.1981872330"]:checked')?.value,
-                        seniorSalesDevelopmentRepresentativeSkill: document.querySelector('input[name="entry.1799634679"]:checked')?.value,
-                        productionSpecialistSkill: document.querySelector('input[name="entry.172899804"]:checked')?.value
+                        socialMediaMarketer: document.querySelector('input[name="entry.1472269512"]:checked')?.value,
+                        emailMarketingSpecialist: document.querySelector('input[name="entry.845440938"]:checked')?.value,
+                        dataResearcher: document.querySelector('input[name="entry.733183005"]:checked')?.value,
+                        dataProfiler: document.querySelector('input[name="entry.1996721800"]:checked')?.value,
+                        dataAnalyst: document.querySelector('input[name="entry.1129004359"]:checked')?.value,
+                        digitalMarketingStrategist: document.querySelector('input[name="entry.480360500"]:checked')?.value,
+                        juniorBusinessDevelopmentRepresentative: document.querySelector('input[name="entry.826659433"]:checked')?.value,
+                        seniorSalesTech: document.querySelector('input[name="entry.1315177529"]:checked')?.value,
+                        callboxSocialMediaManager: document.querySelector('input[name="entry.1201646898"]:checked')?.value,
+                        uiUxDesignerCrmFocus: document.querySelector('input[name="entry.1365391400"]:checked')?.value,
+                        seniorBusinessDevelopment: document.querySelector('input[name="entry.48651508"]:checked')?.value,
+                        seniorClientSuccessManager: document.querySelector('input[name="entry.1981872330"]:checked')?.value,
+                        seniorSalesDevelopmentRepresentative: document.querySelector('input[name="entry.1799634679"]:checked')?.value,
+                        productionSpecialist: document.querySelector('input[name="entry.172899804"]:checked')?.value
                     };
                 }
             }
-            else if (sectionNumber === 3) {
+            else if (sectionNumber === 4) {
                 // Validate technical section
                 const techSkillsToValidate = [
-                { name: 'entry.247657249', cardId: 'crmFocusSkillCard' },
-                { name: 'entry.851265382', cardId: 'googleAnalyticsSkillCard' },
-                { name: 'entry.1575318990', cardId: 'socialMediaManagementPlatformsSkillCard' },
-                { name: 'entry.194996003', cardId: 'marketingAutomationToolsSkillCard' },
-                { name: 'entry.1379208512', cardId: 'trainingToolsSkillCard' },
-                { name: 'entry.130500757', cardId: 'sqlDataVisualizationToolsSkillCard' },
-                { name: 'entry.1412276440', cardId: 'uiUxDesignToolsSkillCard' },
-                { name: 'entry.511675494', cardId: 'adobeCreativeSuiteSkillCard' },
-                { name: 'entry.1901206916', cardId: 'seoContentMarketingToolsSkillCard' },
-                { name: 'entry.1588296739', cardId: 'salesAutomationToolsSkillCard' }
+                    { name: 'entry.247657249', cardId: 'crmFocusSkillCard' },
+                    { name: 'entry.851265382', cardId: 'googleAnalyticsSkillCard' },
+                    { name: 'entry.1575318990', cardId: 'socialMediaManagementPlatformsSkillCard' },
+                    { name: 'entry.194996003', cardId: 'marketingAutomationToolsSkillCard' },
+                    { name: 'entry.1379208512', cardId: 'trainingToolsSkillCard' },
+                    { name: 'entry.130500757', cardId: 'sqlDataVisualizationToolsSkillCard' },
+                    { name: 'entry.1412276440', cardId: 'uiUxDesignToolsSkillCard' },
+                    { name: 'entry.511675494', cardId: 'adobeCreativeSuiteSkillCard' },
+                    { name: 'entry.1901206916', cardId: 'seoContentMarketingToolsSkillCard' },
+                    { name: 'entry.1588296739', cardId: 'salesAutomationToolsSkillCard' }
                 ];
 
                 techSkillsToValidate.forEach(skill => {
@@ -1338,16 +1207,48 @@
 
                 if (isValid) {
                     formData.technical = {
-                        crmFocusSkill: document.querySelector('input[name="entry.247657249"]:checked')?.value,
-                        googleAnalyticsSkill: document.querySelector('input[name="entry.851265382"]:checked')?.value,
-                        socialMediaManagementPlatformsSkill: document.querySelector('input[name="entry.1575318990"]:checked')?.value,
-                        marketingAutomationToolsSkill: document.querySelector('input[name="entry.194996003"]:checked')?.value,
-                        trainingToolsSkill: document.querySelector('input[name="entry.1379208512"]:checked')?.value,
-                        sqlDataVisualizationToolsSkill: document.querySelector('input[name="entry.130500757"]:checked')?.value,
-                        uiUxDesignToolsSkill: document.querySelector('input[name="entry.1412276440"]:checked')?.value,
-                        adobeCreativeSuiteSkill: document.querySelector('input[name="entry.511675494"]:checked')?.value,
-                        seoContentMarketingToolsSkill: document.querySelector('input[name="entry.1901206916"]:checked')?.value,
-                        salesAutomationToolsSkill: document.querySelector('input[name="entry.1588296739"]:checked')?.value
+                        crmFocus: document.querySelector('input[name="entry.247657249"]:checked')?.value,
+                        googleAnalytics: document.querySelector('input[name="entry.851265382"]:checked')?.value,
+                        socialMediaManagementPlatforms: document.querySelector('input[name="entry.1575318990"]:checked')?.value,
+                        marketingAutomationTools: document.querySelector('input[name="entry.194996003"]:checked')?.value,
+                        trainingTools: document.querySelector('input[name="entry.1379208512"]:checked')?.value,
+                        sqlDataVisualizationTools: document.querySelector('input[name="entry.130500757"]:checked')?.value,
+                        uiUxDesignTools: document.querySelector('input[name="entry.1412276440"]:checked')?.value,
+                        adobeCreativeSuite: document.querySelector('input[name="entry.511675494"]:checked')?.value,
+                        seoContentMarketingTools: document.querySelector('input[name="entry.1901206916"]:checked')?.value,
+                        salesAutomationTools: document.querySelector('input[name="entry.1588296739"]:checked')?.value
+                    };
+                }
+            }
+            else if (sectionNumber === 5) {
+                // Validate industry section
+                const checkboxes = document.querySelectorAll('input[name="entry.1502982371"]:checked');
+                if (checkboxes.length === 0) {
+                    document.getElementById('industryCard').classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    formData.industry = Array.from(checkboxes).map(cb => cb.value);
+                }
+            }
+            else if (sectionNumber === 6) {
+                // Validate experience section
+                const experienceToValidate = [
+                    {name: 'entry.289093561', cardId: 'experienceCard'}
+                ];
+
+                experienceToValidate.forEach(exp => {
+                    const selected = document.querySelector(`input[name="${exp.name}"]:checked`);
+                    if (!selected) {
+                        document.getElementById(exp.cardId).classList.add('is-invalid');
+                        isValid = false;
+                    }
+                });
+                
+                if (isValid) {
+                    formData.experience = {
+                        years: document.querySelector('input[name="entry.289093561"]:checked')?.value
                     };
                 }
             }
@@ -1363,9 +1264,10 @@
 
         // Function to submit the form
         function submitForm() {
-            // Collect industry data
-            const checkboxes = document.querySelectorAll('input[name="entry.1502982371"]:checked');
-            formData.industry = Array.from(checkboxes).map(cb => cb.value);
+            // Validate the current section before submitting
+            if (!validateSection(6)) {
+                return;
+            }
 
             console.log('Final Form Data:', formData);
 
@@ -1429,7 +1331,7 @@
 
         // Function to update tab states based on completed sections
         function updateTabStates() {
-            const tabIds = ['applicant-tab', 'skills-tab', 'technical-tab', 'industry-tab'];
+            const tabIds = ['applicant-tab', 'education-tab', 'skills-tab', 'technical-tab', 'industry-tab', 'experience-tab'];
 
             tabIds.forEach((tabId, index) => {
                 const sectionNumber = index + 1;

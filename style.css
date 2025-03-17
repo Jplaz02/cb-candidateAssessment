@@ -1,0 +1,239 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding: 20px;
+    background-color: #111ed8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: none;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+
+.subtitle {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.nav-tabs {
+    border-bottom: none;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: #6c757d;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: white;
+    color: #000;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs .nav-link.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.required:after {
+    content: " *";
+    color: #dc3545;
+}
+
+.form-control {
+    padding: 10px 12px;
+}
+
+.form-control::placeholder {
+    color: #adb5bd;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.skill-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.education-option,
+.experience-option {
+    display: block;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.education-option input[type="radio"],
+.experience-option input[type="radio"] {
+    margin-right: 8px;
+    /* Ensures space between the radio button and text */
+    cursor: pointer;
+}
+
+.proficiency-options {
+    display: flex;
+    gap: 20px;
+}
+
+.proficiency-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.proficiency-Beginner {
+    color: #495057;
+}
+
+.proficiency-Intermediate {
+    color: #0d6efd;
+}
+
+.proficiency-Advanced {
+    color: #198754;
+}
+
+.proficiency-Expert {
+    color: #6f42c1;
+}
+
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0;
+}
+
+.btn-dark {
+    background-color: #212529;
+    border-color: #212529;
+    color: white;
+}
+
+.btn-dark:hover {
+    background-color: #1a1e21;
+    border-color: #1a1e21;
+}
+
+/* Added styles for validation */
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+
+.was-validated .form-control:invalid~.invalid-feedback,
+.form-control.is-invalid~.invalid-feedback {
+    display: block;
+}
+
+.skill-card.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: none;
+}
+
+.skill-card.is-invalid .skill-name {
+    color: #dc3545;
+}
+
+/* Thank you message styles */
+#thankYouMessage {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#thankYouMessage h2 {
+    color: #198754;
+    margin-bottom: 20px;
+}
+
+#thankYouMessage p {
+    font-size: 18px;
+    color: #495057;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.check-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #198754;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+}
+
+.check-icon svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
