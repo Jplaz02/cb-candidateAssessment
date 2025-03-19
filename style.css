@@ -9,15 +9,18 @@ body {
 }
 
 
-
 .form-container {
     max-width: 1000px;
     width: 100%;
 }
 
 .callboxlogo{
+    margin: 0 auto;
     padding-bottom: 5px;
     width:  10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
@@ -32,6 +35,8 @@ body {
     border-bottom: none;
     padding-top: 15px;
     padding-bottom: 0;
+    text-align: center;
+    
 }
 
 .subtitle {
@@ -45,7 +50,11 @@ body {
     background-color: #f8f9fa;
     border-radius: 6px;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+    
 }
+
 
 
 .nav-tabs .nav-link {
@@ -58,7 +67,7 @@ body {
 
 .nav-tabs .nav-link.active {
     background-color: #ffc90c;
-    color: black;
+    color: #063060;
     font-weight: 500;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -68,8 +77,13 @@ body {
     opacity: 0.6;
 }
 
+
+
 .form-label {
     font-weight: 500;
+    width: 100%;        
+    max-width: 400px;   
+    padding-left: 0.25rem;
 }
 
 .required:after {
@@ -77,8 +91,11 @@ body {
     color: #dc3545;
 }
 
+
+
 .form-control {
-    padding: 10px 12px;
+    padding: 10px 12px; 
+    
 }
 
 .form-control::placeholder {
@@ -87,10 +104,12 @@ body {
 
 .section {
     display: none;
+    
 }
 
 .section.active {
     display: block;
+    
 }
 
 .card-body {
@@ -101,12 +120,14 @@ body {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .section-subtitle {
     color: #6c757d;
     font-size: 14px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .skill-card {
@@ -114,9 +135,13 @@ body {
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 15px;
+    width: 632px;
+    
+    margin: 0 auto 15px auto;
 }
 
 .skill-name {
+    text-align: center;
     font-weight: 500;
     margin-bottom: 10px;
 }
@@ -137,8 +162,8 @@ body {
 
 .proficiency-options {
     display: flex;
-
-    gap: 15%;
+    justify-content: space-between;
+    
 }
 
 .proficiency-option {
