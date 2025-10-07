@@ -1,7 +1,3 @@
-Perfect — I’ve updated the README to include proper co-authorship and attribution. Here’s your finalized version:
-
----
-
 # 🧾 cb-candidateAssessment-tool
 
 ### 📋 Overview
